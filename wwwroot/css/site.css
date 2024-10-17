@@ -1,0 +1,41 @@
+body {
+    background-color: #f4f6f9;
+}
+
+h1, h2 {
+    color: #343a40;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.form-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo compacto para los formularios */
+.compact-form input.form-control-sm {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.compact-form label {
+    font-size: 0.875rem;
+    margin-bottom: 0.3rem;
+}
+
+.compact-form .form-section {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+    .compact-form .form-section h4 {
+        font-size: 1.1rem;
+    }

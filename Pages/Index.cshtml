@@ -1,0 +1,95 @@
+﻿@page
+@model SegurosVidaAPI.Pages.IndexModel
+@{
+    ViewData["Title"] = "Gestión de Cuadros Técnicos";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Gestión de Cuadros Técnicos</h1>
+
+    <!-- Sección para mostrar la información del JWT -->
+    <div class="alert alert-info">
+        <h4>Autenticación JWT Implementada</h4>
+        <p>El token JWT se obtiene dinámicamente y tiene una duración de 30 minutos. Este es el token actual:</p>
+        <code id="jwt-token-display">Cargando...</code>
+    </div>
+
+    <!-- Formulario de Creación y Actualización en una fila compacta -->
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <section class="form-section">
+                <h4 class="mb-3 text-center">Añadir Cuadro Técnico</h4>
+                <form id="create-form" class="row gx-2 gy-1 compact-form">
+                    <div class="col-12">
+                        <label for="nombre-create" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre-create" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="descripcion-create" class="form-label">Descripción:</label>
+                        <input type="text" id="descripcion-create" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="montoAsegurado-create" class="form-label">Monto Asegurado:</label>
+                        <input type="number" id="montoAsegurado-create" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="prima-create" class="form-label">Prima:</label>
+                        <input type="number" id="prima-create" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-success btn-sm">Añadir</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <div class="col-md-6">
+            <section class="form-section">
+                <h4 class="mb-3 text-center">Actualizar Cuadro Técnico</h4>
+                <form id="update-form" class="row gx-2 gy-1 compact-form">
+                    <input type="hidden" id="cuadro-id" />
+                    <div class="col-12">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="descripcion" class="form-label">Descripción:</label>
+                        <input type="text" id="descripcion" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="montoAsegurado" class="form-label">Monto Asegurado:</label>
+                        <input type="number" id="montoAsegurado" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="prima" class="form-label">Prima:</label>
+                        <input type="number" id="prima" class="form-control form-control-sm" required>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary btn-sm">Actualizar</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <!-- Tabla de cuadros técnicos -->
+    <section class="table-responsive mb-5">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Monto Asegurado</th>
+                    <th>Prima</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cuadros-table">
+                <!-- Aquí se llenarán los datos de la API -->
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<script src="/js/cuadrosTecnicos.js"></script>
